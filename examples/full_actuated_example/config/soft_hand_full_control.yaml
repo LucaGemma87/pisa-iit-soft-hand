@@ -8,12 +8,12 @@ soft_hand:
   hand_thumb_abd_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: soft_hand_thumb_abd_joint
-    pid: {p: 1.0, i: 0.1, d: 0.5}
+    pid: {p: 100000.0, i: 100, d: 500}
 
   hand_thumb_inner_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: soft_hand_thumb_inner_joint
-    pid: {p: 1.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 0.1, d: 5}
 
   hand_thumb_outer_joint_position_controller:
     type: effort_controllers/JointPositionController
@@ -104,7 +104,7 @@ soft_hand:
   hand_thumb_inner_joint_mimic_position_controller:
     type: effort_controllers/JointPositionController
     joint: soft_hand_thumb_inner_joint_mimic
-    pid: {p: 1.0, i: 0.1, d: 0.5}
+    pid: {p: 10000.0, i: 0.1, d: 200}
 
   hand_thumb_outer_joint_mimic_position_controller:
     type: effort_controllers/JointPositionController

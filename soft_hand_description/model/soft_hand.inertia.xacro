@@ -11,8 +11,8 @@
     <!-- conversions -->
     <!-- I couldn't make the simulation work with realistic values, so I tweaked the conversion values -->
     <xacro:property name="mm_to_m" value="0.001"/>
-    <xacro:property name="mm2_to_m2" value="0.001"/>
-    <xacro:property name="gr_to_Kg" value="0.01"/>
+     <xacro:property name="mm2_to_m2" value="0.000001"/> 
+    <xacro:property name="gr_to_Kg" value="0.001"/>
 
     <!-- not so negligible, otherwise simulation fails -->
     <xacro:property name="negligible_mass" value="${10*gr_to_Kg}"/>
@@ -139,7 +139,7 @@ Mesh Bounding Box Size 36.539444 91.129791 84.829025
 Mesh Bounding Box Diag 129.752579 
 Mesh Volume is 76748.765625
 Mesh Surface is 52111.375000
-Thin shell barycenter -5.584415 -7.926011 28.832655
+Thin shell barycenter -5.584415 -7.926011 28.832655aaaaaaaaaaaaaaaaaaaaaa
 Center of Mass is -4.568758 -6.808116 27.653328
 Inertia Tensor is :
 | 55001040.000000 -714369.625000 -867280.437500 |
