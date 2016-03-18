@@ -1,32 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
-  
-<!--  Opened mesh /home/pacman/Projects/catkin_ws/src/vito-robot/pisa-iit-soft-hand/soft_hand_description/meshes/accesories/clamp.stl in 10 msec
-All files opened in 1273 msec
-Mesh Bounding Box Size 0,066000 0,072500 0,025600
-Mesh Bounding Box Diag 0,101329 
-Mesh Volume is 0,000045
-Mesh Surface is 0,030645
-Thin shell barycenter -0,000000 -0,000183 -0,002245
-Center of Mass is -0,000000 -0,000206 -0,002440
-Inertia Tensor is :
-| 0,000000 -0,000000 0,000000 |
-| -0,000000 0,000000 -0,000000 |
-| 0,000000 -0,000000 0,000000 |
-Principal axes are :
-| 1,000000 0,000009 0,000002 |
-| -0,000009 1,000000 -0,000187 |
-| -0,000002 0,000187 1,000000 |
-axis momenta are :
-| 0,000000 0,000000 0,000000 |-->
 
-      <!-- conversions -->
-    <!-- I couldn't make the simulation work with realistic values, so I tweaked the conversion values -->
-    <xacro:property name="mm_to_m" value="0.001"/>
-    <xacro:property name="mm2_to_m2" value="0.000001"/>
-    <xacro:property name="gr_to_Kg" value="0.001"/>
-  
 <xacro:macro name="clamp" params="parent name *origin">
   <joint name="${parent}_${name}_joint" type="fixed">
     <insert_block name="origin"/>
@@ -47,22 +21,7 @@ axis momenta are :
         <box size="0.066 0.0725 0.0256"/>
       </geometry>
     </collision>
-    <inertial>
-            <mass value="${150*gr_to_Kg}"/>
-        <inertia ixx="${150*gr_to_Kg * 66 * 66 * mm2_to_m2}" ixy="0.0" ixz="0.0" iyy="${150*gr_to_Kg * 72.5 * 72.5 * mm2_to_m2}" iyz="0.0" izz="${150*gr_to_Kg * 25.6*25.6 * mm2_to_m2}"/>
-      </inertial>
-	</link>
-
-      <gazebo reference="${name}"> 
-        <selfCollide>false</selfCollide> 
-       <gravity>true</gravity>
-       <maxContacts>100</maxContacts>
-    <mu1>0.6</mu1>
-               <mu2>0.6</mu2> 
-    <kp>1000000.0</kp>
-    <kd>1000.0</kd>
-    <minDepth>0.00</minDepth>
-   </gazebo>
+  </link>
 </xacro:macro>
 
 </robot>

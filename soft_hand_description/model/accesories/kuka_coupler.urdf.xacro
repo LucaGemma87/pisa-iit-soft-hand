@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
-      <xacro:property name="mm_to_m" value="0.001"/>
-    <xacro:property name="mm2_to_m2" value="0.000001"/>
-    <xacro:property name="gr_to_Kg" value="0.001"/>
 
 <xacro:macro name="kuka_coupler" params="parent name *origin">
   <joint name="${parent}_${name}_joint" type="fixed">
@@ -26,11 +22,6 @@
         <cylinder radius="0.033" length="0.023"/>
       </geometry>
     </collision>
-        <inertial>
-      <origin xyz="0 0 0.031" rpy="0 0 0"/>
-        <mass value="${250*gr_to_Kg}"/>
-        <inertia ixx="${250*gr_to_Kg * 66 * 66 * mm2_to_m2}" ixy="0.0" ixz="0.0" iyy="${250*gr_to_Kg * 66* 66 * mm2_to_m2}" iyz="0.0" izz="${250*gr_to_Kg * 62 * 62 * mm2_to_m2}"/>
-      </inertial>
   </link>
   <joint name="${parent}_${name}_base_joint" type="fixed">
     <origin xyz="0 0 0.023" rpy="0 0 0"/>
@@ -38,17 +29,6 @@
     <child link="${name}"/>
   </joint>
   <link name="${name}"/>
-
-      <gazebo reference="${name}_bottom"> 
-        <selfCollide>false</selfCollide>
-             <gravity>true</gravity>
-       <maxContacts>100</maxContacts>
-    <mu1>0.6</mu1>
-               <mu2>0.6</mu2>  
-    <kp>1000000.0</kp>
-    <kd>1000.0</kd>
-    <minDepth>0.00</minDepth>
-   </gazebo>
 </xacro:macro>
 
 </robot>
